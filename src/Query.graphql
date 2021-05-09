@@ -1,0 +1,263 @@
+"""
+The start of any query
+"""
+type Query {
+  """
+  No description available.
+
+  Equivalent to GET /accounts
+  """
+  accounts: [AccountMembership]
+
+  """
+  No description available.
+
+  Equivalent to GET /accounts/{account_id}/audit
+  """
+  accountsAudit(accountId: String!, query: String, logType: String): [AuditLog]
+
+  """
+  No description available.
+
+  Equivalent to GET /accounts/types
+  """
+  accountsTypes: [AccountType]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/assets/{asset_id}
+  """
+  asset(siteId: String!, assetId: String!): Asset
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/assets/{asset_id}/public_signature
+  """
+  assetPublicSignature(siteId: String!, assetId: String!): AssetPublicSignature
+
+  """
+  No description available.
+
+  Equivalent to GET /billing/payment_methods
+  """
+  billingPaymentMethods: [PaymentMethod]
+
+  """
+  No description available.
+
+  Equivalent to GET /builds/{build_id}
+  """
+  build(buildId: String!): Build
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/build_hooks/{id}
+  """
+  buildHook(siteId: String!, id: String!): BuildHook
+
+  """
+  No description available.
+
+  Equivalent to GET /deploys/{deploy_id}
+  """
+  deploy(deployId: String!): Deploy
+
+  """
+  No description available.
+
+  Equivalent to GET /deploy_keys/{key_id}
+  """
+  deployKey(keyId: String!): DeployKey
+
+  """
+  No description available.
+
+  Equivalent to GET /deploy_keys
+  """
+  deployKeys: [DeployKey]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/files/{file_path}
+  """
+  file(siteId: String!, filePath: String!): File
+
+  """
+  No description available.
+
+  Equivalent to GET /forms
+  """
+  forms(siteId: String): [Form]
+
+  """
+  No description available.
+
+  Equivalent to GET /forms/{form_id}/submissions
+  """
+  formsSubmissions(formId: String!): [Submission]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/deploys/{deploy_id}
+  """
+  getSiteDeploy(siteId: String!, deployId: String!): Deploy
+
+  """
+  No description available.
+
+  Equivalent to GET /hooks/{hook_id}
+  """
+  hook(hookId: String!): Hook
+
+  """
+  No description available.
+
+  Equivalent to GET /hooks
+  """
+  hooks(siteId: String!): [Hook]
+
+  """
+  No description available.
+
+  Equivalent to GET /hooks/types
+  """
+  hooksTypes: [HookType]
+
+  """
+  No description available.
+
+  Equivalent to GET /{account_slug}/sites
+  """
+  listSitesForAccount(name: String, accountSlug: String!): [Site]
+
+  """
+  No description available.
+
+  Equivalent to GET /{account_slug}/members
+  """
+  members(accountSlug: String!): [Member]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/metadata
+  """
+  metadata(siteId: String!): String
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}
+  """
+  site(siteId: String!): Site
+
+  """
+  No description available.
+
+  Equivalent to GET /sites
+  """
+  sites(name: String, filter: Filter): [Site]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/assets
+  """
+  sitesAssets(siteId: String!): [Asset]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/build_hooks
+  """
+  sitesBuildHooks(siteId: String!): [BuildHook]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/builds
+  """
+  sitesBuilds(siteId: String!): [Build]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/deployed-branches
+  """
+  sitesDeployedBranches(siteId: String!): [DeployedBranch]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/deploys
+  """
+  sitesDeploys(siteId: String!): [Deploy]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/dns
+  """
+  sitesDns(siteId: String!): [DnsZone]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/files
+  """
+  sitesFiles(siteId: String!): [File]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/forms
+  """
+  sitesForms(siteId: String!): [Form]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/snippets
+  """
+  sitesSnippets(siteId: String!): [Snippet]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/submissions
+  """
+  sitesSubmissions(siteId: String!): [Submission]
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/ssl
+  """
+  sniCertificate(siteId: String!): SniCertificate
+
+  """
+  No description available.
+
+  Equivalent to GET /sites/{site_id}/snippets/{snippet_id}
+  """
+  snippet(siteId: String!, snippetId: String!): Snippet
+
+  """
+  No description available.
+
+  Equivalent to GET /submissions/{submission_id}
+  """
+  submissions(submissionId: String!, query: String): [Submission]
+
+  """
+  No description available.
+
+  Equivalent to GET /oauth/tickets/{ticket_id}
+  """
+  ticket(ticketId: String!): Ticket
+}
