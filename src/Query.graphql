@@ -1,6 +1,11 @@
-"""
-The start of any query
-"""
+# import { AccountMembership } from './account/typeDefs.graphql
+
+type AuditLog {
+  accountId: String
+  id: String
+  payload: JSON
+}
+
 type Query {
   """
   No description available.
