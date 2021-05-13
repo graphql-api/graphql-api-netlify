@@ -1,0 +1,29 @@
+type AccountUsageCapability {
+  included: Int
+  used: Int
+}
+
+
+type Capabilities {
+  collaborators: AccountUsageCapability
+  sites: AccountUsageCapability
+}
+
+type AccountMembership {
+  billingDetails: String
+  billingEmail: String
+  billingName: String
+  billingPeriod: String
+  capabilities: Capabilities
+  createdAt: String
+  id: String
+  name: String
+  ownerIds: [String]
+  paymentMethodId: String
+  rolesAllowed: [String]
+  slug: String
+  type: String
+  typeId: String
+  typeName: String
+  updatedAt: String
+}
