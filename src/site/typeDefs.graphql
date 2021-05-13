@@ -1,0 +1,167 @@
+type ProcessingSettings {
+  css: MinifyOptions
+  html: Html
+  images: Images
+  js: MinifyOptions
+  skip: Boolean
+}
+
+input ProcessingSettingsInput {
+  css: MinifyOptionsInput
+  html: HtmlInput
+  images: ImagesInput
+  js: MinifyOptionsInput
+  skip: Boolean
+}
+
+type RepoInfo {
+  allowedBranches: [String]
+  cmd: String
+  deployKeyId: String
+  dir: String
+  env: JSON
+  id: Int
+  privateLogs: Boolean
+  provider: String
+  publicRepo: Boolean
+  repoBranch: String
+  repoPath: String
+  repoUrl: String
+}
+
+
+input RepoInfoInput {
+  allowedBranches: [String]
+  cmd: String
+  deployKeyId: String
+  dir: String
+  env: JSON
+  id: Int
+  privateLogs: Boolean
+  provider: String
+  publicRepo: Boolean
+  repoBranch: String
+  repoPath: String
+  repoUrl: String
+}
+
+type Site {
+  accountName: String
+  accountSlug: String
+  adminUrl: String
+  buildSettings: RepoInfo
+  capabilities: JSON
+  createdAt: String
+  customDomain: String
+  deployHook: String
+  deployUrl: String
+  domainAliases: [String]
+  forceSsl: Boolean
+  gitProvider: String
+  id: String
+  managedDns: Boolean
+  name: String
+  notificationEmail: String
+  password: String
+  plan: String
+  processingSettings: ProcessingSettings
+  publishedDeploy: Deploy
+  screenshotUrl: String
+  sessionId: String
+  ssl: Boolean
+  sslUrl: String
+  state: String
+  updatedAt: String
+  url: String
+  userId: String
+}
+
+
+input SiteSetup2Input {
+  accountName: String
+  accountSlug: String
+  adminUrl: String
+  buildSettings: RepoInfoInput
+  capabilities: JSON
+  createdAt: String
+  customDomain: String
+  deployHook: String
+  deployUrl: String
+  domainAliases: [String]
+  forceSsl: Boolean
+  gitProvider: String
+  id: String
+  managedDns: Boolean
+  name: String
+  notificationEmail: String
+  password: String
+  plan: String
+  processingSettings: ProcessingSettingsInput
+  publishedDeploy: DeployInput
+  screenshotUrl: String
+  sessionId: String
+  ssl: Boolean
+  sslUrl: String
+  state: String
+  updatedAt: String
+  url: String
+  userId: String
+}
+
+input SiteSetupInput {
+  accountName: String
+  accountSlug: String
+  adminUrl: String
+  buildSettings: RepoInfoInput
+  capabilities: JSON
+  createdAt: String
+  customDomain: String
+  deployHook: String
+  deployUrl: String
+  domainAliases: [String]
+  forceSsl: Boolean
+  gitProvider: String
+  id: String
+  managedDns: Boolean
+  name: String
+  notificationEmail: String
+  password: String
+  plan: String
+  processingSettings: ProcessingSettingsInput
+  publishedDeploy: DeployInput
+  screenshotUrl: String
+  sessionId: String
+  ssl: Boolean
+  sslUrl: String
+  state: String
+  updatedAt: String
+  url: String
+  userId: String
+}
+
+type Query {
+  """
+  Equivalent to GET /sites/{site_id}
+  """
+  site(siteId: String!): Site
+
+  """
+  Equivalent to GET /sites
+  """
+  sites(name: String, filter: Filter): [Site]
+}
+
+type Mutation {
+  """
+  Equivalent to POST /sites
+  """
+  createSite(configureDns: Boolean, siteSetupInput: SiteSetupInput!): Site
+  """
+  Equivalent to POST /{account_slug}/sites
+  """
+  createSiteInTeam(
+    configureDns: Boolean
+    accountSlug: String!
+    siteSetupInput: SiteSetup2Input
+  ): Site
+}
