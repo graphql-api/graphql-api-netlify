@@ -1,4 +1,4 @@
-# import { AccountMembership } from './account/typeDefs.graphql
+# import { AccountMembership } from '../Account/typeDefs.graphql
 
 type AuditLog {
   accountId: String
@@ -7,46 +7,17 @@ type AuditLog {
 }
 
 type Query {
-  """
-  No description available.
-
-  Equivalent to GET /accounts
-  """
+  # Equivalent to GET /accounts
   accounts: [AccountMembership]
-
-  """
-  No description available.
-
-  Equivalent to GET /accounts/{account_id}/audit
-  """
+  # Equivalent to GET /accounts/{account_id}/audit
   accountsAudit(accountId: String!, query: String, logType: String): [AuditLog]
-
-  """
-  No description available.
-
-  Equivalent to GET /accounts/types
-  """
+  # Equivalent to GET /accounts/types
   accountsTypes: [AccountType]
-
-  """
-  No description available.
-
-  Equivalent to GET /sites/{site_id}/assets/{asset_id}
-  """
+  # Equivalent to GET /sites/{site_id}/assets/{asset_id}
   asset(siteId: String!, assetId: String!): Asset
-
-  """
-  No description available.
-
-  Equivalent to GET /sites/{site_id}/assets/{asset_id}/public_signature
-  """
+  # Equivalent to GET /sites/{site_id}/assets/{asset_id}/public_signature
   assetPublicSignature(siteId: String!, assetId: String!): AssetPublicSignature
-
-  """
-  No description available.
-
-  Equivalent to GET /billing/payment_methods
-  """
+  # Equivalent to GET /billing/payment_methods
   billingPaymentMethods: [PaymentMethod]
 
   """

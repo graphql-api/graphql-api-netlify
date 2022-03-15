@@ -1,0 +1,33 @@
+{
+  "root": "libs/graphql/netlify",
+  "sourceRoot": "libs/graphql/netlify/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/graphql/netlify",
+        "main": "libs/graphql/netlify/src/index.ts",
+        "tsConfig": "libs/graphql/netlify/tsconfig.lib.json",
+        "assets": ["libs/graphql/netlify/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/graphql/netlify/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/graphql/netlify"],
+      "options": {
+        "jestConfig": "libs/graphql/netlify/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
