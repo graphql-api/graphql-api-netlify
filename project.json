@@ -1,5 +1,5 @@
 {
-  "root": "libs/graphql/netlify",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/graphql/netlify/src",
   "projectType": "library",
   "targets": {
@@ -24,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/graphql/netlify"],
       "options": {
-        "jestConfig": "libs/graphql/netlify/jest.config.js",
+        "jestConfig": "libs/graphql/netlify/jest.config.ts",
         "passWithNoTests": true
       }
     },
